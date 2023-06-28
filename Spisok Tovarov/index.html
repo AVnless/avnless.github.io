@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <link href="https://fonts.googleapis.com/css?family=ABeeZee&display=swap" rel="stylesheet" />
+      <link href="./css/main.css" rel="stylesheet" />
+      <title>Document</title>
+      <script src="search.js"></script>
+   </head>
+   <body>
+   <script src="script.php"></script>
+      <div class="v72656_283">
+         <div class="v72656_284"></div>
+         <div class="v72656_290">
+            <div class="v72656_291"></div>
+            <div class="v72656_297">
+               <div class="v72656_298"></div>
+            </div>
+         </div>
+         <div class="v72669_84"></div>
+         <div class="v72657_33">
+            <div class="v72657_43">
+               
+               <div class="v72657_71"></div>
+               <div class="v72657_79">
+                  <div class="v72657_80"></div>
+                  <span class="v72657_81">Лучший выбор на всём южном побережье!</span>
+               </div>
+            </div>
+         </div>
+         <div class="v72660_54"></div>
+         <div class="engine-block" id="engine1">
+            <span class="engine-description v72663_127">Двигатель представляет собой бензиновый атмосферник объемом 2,5 литра, мощностью 173 л. с и крутящим моментом 226 Нм. Выпускается с 2001 года.</span>
+            <span class="engine-name v72663_128">Renault 2TR</span>
+            <span class="v72663_131">50.000р</span>
+            <div class="v72663_130"></div>
+         </div>
+         <div class="engine-block" id="engine2">
+            <span class="engine-description v72663_132">D4F – бензиновый рядный четырехцилиндровый атмосферник объемом 1,2 литра, мощностью 75 л.с при крутящем моменте 107 Нм.</span>
+            <span class="engine-name v72663_133">Renault D4F</span>
+            <span class="v72663_138">30.000р</span>
+            
+			<div class="v72663_134"></div>
+         </div>
+         <div class="engine-block" id="engine3">
+            <span class="engine-description v72663_135">Он представляет собой рядный четырехцилиндровый турбодизель объемом 2,5 литра мощностью от 100 до 145 л.с при крутящем моменте 260-310 Нм.</span>
+            <span class="engine-name v72663_136">Renault G9U</span>
+            <span class="v72663_139">40.000р</span>
+            <div class="v72663_137"></div>
+         </div>
+         <span class="v72669_85"><input type="text" id="searchInput" placeholder="Поиск"></span>
+      </div>
+      <script>
+         // Функция для фильтрации информации по объектам
+         function filterEngines() {
+            var input = document.getElementById('searchInput').value.toLowerCase(); // Получаем значение текстового поля поиска и приводим его к нижнему регистру
+            var engineBlocks = document.getElementsByClassName('engine-block'); // Получаем все элементы с классом 'engine-block'
+
+            // Проходим по каждому блоку двигателя и проверяем, содержит ли он введенный текст
+            for (var i = 0; i < engineBlocks.length; i++) {
+               var engineName = engineBlocks[i].getElementsByClassName('engine-name')[0].innerText.toLowerCase(); // Получаем название двигателя и приводим его к нижнему регистру
+
+               // Проверяем, содержит ли название двигателя введенный текст
+               if (engineName.indexOf(input) > -1) {
+                  engineBlocks[i].style.display = ''; // Отображаем блок двигателя, если он соответствует поисковому запросу
+               } else {
+                  engineBlocks[i].style.display = 'none'; // Скрываем блок двигателя, если он не соответствует поисковому запросу
+               }
+            }
+         }
+
+         // Обработчик события для текстового поля поиска
+         document.getElementById('searchInput').addEventListener('input', filterEngines);
+
+         // Вызов функции для первоначальной фильтрации при загрузке страницы
+         filterEngines();
+      </script>
+   </body>
+</html>
